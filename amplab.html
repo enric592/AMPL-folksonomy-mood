@@ -1,0 +1,233 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252"><title></title></head>
+
+<body>
+    <a href="http://www.dtic.upf.edu/%7Eaporter/amplab/2015/">2015 class projects</a><br>
+    <h1>AcousticBrainz AMPLab projects, 2016</h1>
+    Alastair Porter and Dmitry Bogdanov. March 14 2015.<br>
+    Contact Alastair (alastair.porter@upf.edu, 55.306) or Dmitry (dmitry.bogdanov@upf.edu, 55.308)
+
+    <p>Choose one of the projects below to work on.</p>
+
+    <h2>Deliverables</h2>
+    <p>On March 8, give a 5 minute presentation on your project and progress so far.
+    </p><p>On March 15, Submit a minimum 2 page written report. You must also include source code for your project in a github repository.<br>
+    If your repository is private, add us as collaborators (<a href="https://github.com/dbogdanov">@dbogdanov</a>, <a href="https://github.com/alastair">@alastair</a>), or include the URL in your report.
+
+    </p><p>GitHub is a community for storing and sharing code. You can sign up for an account at
+    <a href="https://github.com/">github.com</a>. It supports the <i>git</i> source control system.<br>
+    Git is very powerful, but can take some time to learn. Github has <a href="https://guides.github.com/">some guides</a>,
+    and there are also some graphical clients you can use:
+    </p><ul>
+        <li><a href="https://desktop.github.com/">https://desktop.github.com/</a>
+        </li><li><a href="http://www.syntevo.com/smartgit/">http://www.syntevo.com/smartgit/</a>
+        </li><li><a href="https://www.sourcetreeapp.com/">https://www.sourcetreeapp.com/</a>
+    </li></ul>
+
+    <h2>Updates</h2>
+    <p>We'll put responses to any questions or clarifications here.
+
+    </p><h2>Projects</h2>
+
+    <h3>Dataset creation from last.fm or other folksonomy tags</h3>
+    <p>We are providing a list of folksonomy tags from last.fm for a subset of recordings in AcousticBrainz<br>
+    We made <a href="http://beta.acousticbrainz.org/datasets/9cbd396f-eac7-451e-b20c-60d5ce89967e">a
+        dataset by selecting genre tags and trained a model</a><br>
+
+    You need to make a similar dataset using these tags, except using a musical aspect other than genre.
+    Tags in last.fm often refer to things other than genre, for example:
+    </p><ul><li>decade
+        </li><li>mood
+        </li><li>instrumentation
+        </li><li>gender of singer
+    </li></ul>
+
+    Use the dataset editor on the <a href="http://beta.acousticbrainz.org/">acousticbrainz website</a> by signing in,
+    and going to your profile (in the menu on the top right)
+    Create a csv file containing two columns, where the first column is a musicbrainz id, and the second column
+    is the name of your class.<br>
+    Select the [Import from CSV] option to create your dataset, and then select the [Evaluate] button. Don't
+    choose any options.<br>
+    If the job stays with status "in queue" for more than a few minutes, contact Alastair to verify that it has
+    started to process.
+
+    <h4>Recommendations</h4>
+    <p>The training process takes 2 hours per 1,000 instances in your 
+dataset. If other students are doing the same task you will not have 
+time in the last day before the task is due. Start early!</p>
+    <p>You should make sure that all of your classes have approximately the same number of instances. For example,
+    if you only find 200 recordings with genre 'jazz', you should only put 200 recordings in the 'rock' category, even
+    if you find more recordings.
+
+    </p><hr>
+    <h3>Data collection</h3>
+    <p>For a previous project we gathered annotations (tags) from last.fm.
+    </p><p>Choose another website to scrape annotations from.<br>
+    Some examples:
+    </p><ul>
+        <li>discogs (genre, style) [https://www.discogs.com/developers/]
+        </li><li>musicbrainz (tags, artist/release metadata) [http://wiki.musicbrainz.org/Development/XML_Web_Service/Version_2
+        </li><li>rate your music (genre) [http://rateyourmusic.com/, https://github.com/jcazevedo/beets-rymgenre]
+        </li><li>wikipedia [either search for wikipedia urls on 
+musicbrainz, or search wikipedia or wikidata 
+[https://www.wikidata.org/wiki/Property:P136]
+        </li><li>all music guide (mood, theme, genre, style) [more difficult - web scraping, https://github.com/daveisadork/picard-allmusic]
+    </li></ul>
+    <p>Contributions should be made to the <a href="https://github.com/MTG/metadb">metadb project</a>.
+    There are instructions in the <tt>README.md</tt> file which show how to set up the project using
+    <a href="https://www.vagrantup.com/">Vagrant</a>, a tool for setting up development projects.
+    This requires using VirtualBox to create a virtual machine, and setting the project up inside. This is
+    the easiest way to develop on the project, but it can also be installed locally on a linux or mac machine.
+
+    </p><p>Only one student should work on a scraper for each website. To reserve a spot, <a href="https://github.com/MTG/metadb/issues">open an issue</a> on the project page requesting to work on a website.
+    </p><p>Contributions should be proposed to the project by using github's <a href="https://help.github.com/articles/using-pull-requests/">pull request system</a>
+
+    </p><hr>
+    <h3>Duplicate analysis</h3>
+    <p>We have many duplicate submissions in AcousticBrainz, files that were submitted by more than one person.
+    These files could be from different sources, and encoded using different formats. We are providing a dataset
+    of only songs with more than 1 submission.
+    </p><p>Analyse these files and see if duplicates have similar descriptor values. Some examples of values that you could
+    compare include:
+    </p><ul>
+        <li>bpm
+        </li><li>average loudness
+        </li><li>onset rate
+        </li><li>beat positions
+        </li><li>chords histogram
+        </li><li>length
+        </li><li>hpcp mean
+        </li><li>key_key and key_scale
+        </li><li>replaygain
+        </li><li>tuning frequency
+    </li></ul>
+    <p>If you can, see if any duplicate submission appears to be a different song, and explain why.
+    </p><p>This data is distributed as an archive of json files, in the format that we store the data in AcousticBrainz.
+    You probably don't need all of the data included in these files, and so should first reduce the data to just
+    the necessary values, and then work with that data.
+
+
+    </p><hr>
+    <h3>Content analysis for genre classification</h3>
+    <h4>Provided dataset</h4>
+    <ul>
+        <li>Low-level analysis files (in json format) for 6300 recordings from AcousticBrainz</li>
+        <li>Each recording is annotated by genre in the <tt>lastfm-genre-mapping-2016-03-02.json</tt> file</li>
+    </ul>
+    <p>We have created an SVM genre classifier based on this data. This 
+is the classifier trained on the largest genre dataset we have so far. <br>
+    <a href="http://beta.acousticbrainz.org/datasets/9cbd396f-eac7-451e-b20c-60d5ce89967e/evaluation#e0f3a2b9-a72a-44d4-89e6-68535d7cefe1">See the results here</a></p>
+    <p>The obtained accuracy is relatively low. You can see from the <a href="https://en.wikipedia.org/wiki/Confusion_matrix">confusion matrix</a> how some classes are missclassified. One of the possible reasons for that is our audio features, specifically:</p>
+    <ul>
+        <li>Our existing features are not good enough</li>
+        <li>Important features that will allow us to classify genres well are missing</li>
+    </ul>
+    <p>The SVM model that we have trained is non-linear and is therefore
+ is like a black-box that we are currently not able to reverse engineer.
+ Instead we can do a simpler data analysis to understand the usefulness 
+of our features.</p>
+    <h4>The Task</h4>
+    <p>Conduct data analysis using the provided data and identify how 
+useful the low-level audio features included in this data are for the 
+purpose of genre classification. That is, explore relationships between 
+features and genres, and find out which features help to separate 
+between different genres and which don’t. Report on why some of your 
+findings make sense. Relate what you’ve observed to the meaning of the 
+features. </p>
+    <p>In the case of audio features summarized statistically over frames, <strong>use only mean and var values</strong>, as this were the values used by our classifier. </p>
+    <p>You can focus your study on a few genres, and go into details on how well these can be distinguished with audio features.</p>
+    <p>Possible methods and tools to address the task:</p>
+    <ul>
+        <li>Use <strong>filter methods</strong> for <a href="https://en.wikipedia.org/wiki/Feature_selection">feature selection</a> (search in text for filter methods and filter metrics)<ul>
+                <li>Variable ranking: <a href="http://www.jmlr.org/papers/volume3/guyon03a/guyon03a.pdf">An introduction to variable and feature selection.</a> (some more explanations here; see section 2)</li>
+                <li><a href="https://en.wikipedia.org/wiki/Feature_selection#Filter_Method">https://en.wikipedia.org/wiki/Feature_selection#Filter_Method</a></li>
+                <li><a href="http://blog.datadive.net/selecting-good-features-part-i-univariate-selection/">http://blog.datadive.net/selecting-good-features-part-i-univariate-selection/</a></li>
+                <li><a href="http://scikit-learn.org/stable/modules/feature_selection.html"><strong>Scikit-Learn Feature Selection library</strong></a></li>
+            </ul>
+        </li>
+        <li><strong>Visual data inspection</strong><ul>
+                <li><a href="https://stanford.edu/%7Emwaskom/software/seaborn/tutorial/distributions.html">Visualizing the distribution of a dataset</a></li>
+                <li><a href="https://stanford.edu/%7Emwaskom/software/seaborn/index.html">Seaborn Python visualization library based on matplotlib</a></li>
+            </ul>
+        </li>
+    </ul>
+
+
+    <hr>
+    <h2>Hints and tips</h2>
+
+    <p>Look at the <a href="http://datascienceatthecommandline.com/">Data Science at the Commandline website</a>
+    for some suggestions on how you can organise the data files.
+
+    </p><p>Some of my recommendations for tools (these are available on Linux and OSX):
+
+    </p><p><tt>head</tt>: Take the first lines from a file:
+
+    </p><blockquote><tt>
+    head -10000 inputfile &gt; outputfile
+    </tt></blockquote>
+
+    <p>If you don't manage to get any good results, don't worry!
+    Part of research is about making mistakes as well. If you try something and it doesn't work, talk about why
+    it didn't work and give some thoughts on what you think the reason might be and how you might fix it
+    if you were to do the project again.
+
+
+    </p><h2>Data files</h2>
+
+    <p>The data files are compressed using bzip2. You can uncompress them with the `bunzip2' program on OSX
+    and Linux, or with 7zip on Windows.
+    </p><p>Some of the additional data files are missing information for some recordings. This is expected.
+    </p><p>You can combine the additional datafiles and the main datafile with
+    <a href="https://csvkit.readthedocs.org/en/0.9.0/tutorial/3_power_tools.html#csvjoin-merging-related-data">
+        <tt>csvjoin</tt></a>. Look at the <a href="https://csvkit.readthedocs.org/en/0.9.0/scripts/csvjoin.html">
+        documentation</a>, and especially the <tt>-c</tt> option to specify
+    which columns to join on (since the data in the additional files may be in a different order to the
+    main data file)
+
+    </p><p>Data files all contain a <a href="https://musicbrainz.org/doc/MusicBrainz_Identifier">MusicBrainz
+        Recording id</a>. You can see information about each recording on the
+    MusicBrainz website by going to <tt>http://musicbrainz.org/recording/&lt;theid&gt;</tt>
+
+
+    </p><h3>Last.fm tags</h3>
+    <p><a href="http://www.dtic.upf.edu/%7Eaporter/amplab/acousticbrainz-2015-01-lastfm-tags.csv.bz2">acousticbrainz-2015-01-lastfm-tags.csv.bz2</a> (69MB)
+    </p><p>Contains tags scraped from Last.fm according to the <a href="http://www.last.fm/api/show/track.getTopTags">track.getTopTags</a> method.<br>
+    Each row contains the MBID of a recording in the first column followed by pairs of data. The first
+    item in a pair is a tag, and the second item is its count in that recording (see their documentation).
+    These counts are normalised per recording, that is, a count of 100 means that it is the most common
+    tag in that recording, not that it has been tagged with this tag 100 times.<br>
+    Many of these tags could be used for genres or moods. Be careful, there are a lot of useless tags
+    in this dataset.
+
+    </p><h3>Metadata genre tags</h3>
+    <p><a href="http://www.dtic.upf.edu/%7Eaporter/amplab/acousticbrainz-2015-01-file-genre-tags.csv.bz2">acousticbrainz-2015-01-file-genre-tags.csv.bz2</a> (24MB)
+    </p><p>Contains tags that people have added to their music files under the "genre" heading. These have normally
+    been processed somewhat so that they make more sense as genres. Note that MP3 files can only store one
+    genre, so people have a habit of separating genres with a <tt>/</tt> or a <tt>,</tt> (comma).
+    You should see if you need to split these multiple genres.
+
+    </p><h3>Metadata mood tags</h3>
+    <p><a href="http://www.dtic.upf.edu/%7Eaporter/amplab/acousticbrainz-2015-01-file-mood-tags.csv.bz2">acousticbrainz-2015-01-file-mood-tags.csv.bz2</a> (883KB)
+    </p><p>Contains tags that people have added to their music files under the "mood" heading, similar to
+    the genre tag file.
+    This file only contains about 40,000 lines, so it may not be representative of the whole dataset.
+
+    </p><h3>Duplicated acousticbrainz submissions</h3>
+    <p><a href="http://www.dtic.upf.edu/%7Eaporter/amplab/ab-duplicates100-2016-03-02.tar.bz2">ab-duplicates100-2016-03-02.tar.bz2</a> (134MB)<br>
+    <a href="http://www.dtic.upf.edu/%7Eaporter/amplab/ab-duplicates1000-2016-03-02.tar.bz2">ab-duplicates1000-2016-03-02.tar.bz2</a> (825MB)
+    </p><p>Contains json files with AcousticBrainz features for files which have been submitted multiple times.
+    The filename of these files contains the MusicBrainz id of the submission, and an ordinal number
+    representing the submission order to AcousticBrainz.
+    </p><p>The first file only contains data for 100 MBIDs, and so is smaller. The final analysis should be done
+    on the second, larger file.
+
+    </p><h3>Last.fm </h3>
+    <p><a href="http://www.dtic.upf.edu/%7Eaporter/amplab/lfm-genre-ds-training-2016-03-02.tar.bz2">lfm-genre-ds-training-2016-03-02.tar.bz2</a> (126MB)<br>
+    <a href="http://www.dtic.upf.edu/%7Eaporter/amplab/lastfm-genre-mapping-2016-03-02.json">lastfm-genre-mapping-2016-03-02.json</a>
+    </p><p>Contains json files with AcousticBrainz features for files used in our genre dataset. The secondary file
+    contains a mapping from MusicBrainz id to the class which the file belongs in.
+
+
+
+</p></body></html>
